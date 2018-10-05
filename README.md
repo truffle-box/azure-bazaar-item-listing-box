@@ -7,6 +7,8 @@ Overview 
 The Bazaar - Item Listing scenario shows an example of how an application can have more than one workflow and how one contract can deploy another contract.
 The Bazaar - Item Listing application has two workflows.  The first workflow binds two people through a smart contract.  The second workflow lets the two people bound by a smart contract list items that can be bought and sold between themselves.  The result of buying and selling an item, such as updating user balances, from the second workflow is reflected in the first workflow. 
 
+<br />
+
 Application Roles 
 ------------------
 
@@ -15,6 +17,7 @@ Application Roles 
 | BazaarMaintainer     | A person who is responsible for pairing or binding two people through a smart contract.                                             |
 | Party      | A person who is participant in the application.  A  person in a party role can be a part of one or more bindings, in that can be paired with more than one parties through multiple smart contracts (one smart contract for each pair).                                     |
 
+<br />
 
 Bazaar Workflow States 
 -------
@@ -25,6 +28,7 @@ Bazaar Workflow States 
 | ItemListed         | Indicates that a party has listed an item in the bazaar.                                                                       |
 | CurrentSaleFinalized   | Indicates that the sale of an item currently listed  has been completed.                      |
 
+<br />
 
 Item Listing Workflow States 
 -------
@@ -33,12 +37,12 @@ Item Listing Workflow States 
 |----------------------|-------------------------------------------------------------------------------------------------------------|
 | ItemAvailable               | Indicates that an item is available for buying.                                                      |
 | ItemSold         | Indicates that the item that was available for buying is now sold.                                                                       |
-
+<br />
 
 Workflow Details
 ----------------
 
-![](media/bazaaritemlisting.png)
+![](https://raw.githubusercontent.com/caleteeter/bazaar-item-listing/master/media/bazaaritemlisting.png)
 
 An instance of the Bazaar - Item Listing application first creates a binding between two users (here Party A and Party B).  The two users are bound by a smart contract that tracks their balances (here Party A Balance and Party B Balance).  Once  the smart contract is created and deployed on the chain, the instance reaches the Party Provisioned state.
 
@@ -46,12 +50,14 @@ Party A and Party B, bound by the smart contract, can now begin to buy and sell 
 
 The List Item function is always available to create new items and consequently new instances of the second workflow.  The List Item function is available to both parties so that either party can list an item for sale.  Please note that the first workflow does not have a final state indicating that the two parties can continue to buy and sell more than one item in the Bazaar.  The second workflow, however, does have a final state indicating that an instance of the second workflow captures the sale of exactly one item between the two parties.
 
+<br />
 
 Application Files
 -----------------
-[BazaarItemListing.json](./ethereum/BazaarItemListing.json) : This is the meta-data file and contains information on the two workflows, their properties, functions, and state transition rules.
+[BazaarItemListing.json](https://raw.githubusercontent.com/caleteeter/bazaar-item-listing/master/BazaarItemListing.json) : This is the meta-data file and contains information on the two workflows, their properties, functions, and state transition rules.
 
-[BazaarItemListing.zip](./ethereum/BazaarItemListing.zip) : This file contains three solidity files. 
-* BazaarItemListing.sol - This file contains the code for Workflow 1 in the diagram, binding two users in a contract. 
-* ItemListing.sol - This file contains the code for Workflow 2 in the diagram, buying and selling an item.
-* WorkbenchBase.sol - This file contains the Workbench base class and the event definitions.
+BazaarItemListing.zip: This file contains three solidity files. 
+* [BazaarItemListing.sol](https://raw.githubusercontent.com/caleteeter/bazaar-item-listing/master/contracts/BazaarItemListing.sol
+) - This file contains the code for Workflow 1 in the diagram, binding two users in a contract. 
+* [ItemListing.sol](https://raw.githubusercontent.com/caleteeter/bazaar-item-listing/master/contracts/ItemListing.sol) - This file contains the code for Workflow 2 in the diagram, buying and selling an item.
+* [WorkbenchBase.sol](https://raw.githubusercontent.com/caleteeter/bazaar-item-listing/master/contracts/WorkbenchBase.sol) - This file contains the Workbench base class and the event definitions.
